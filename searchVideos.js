@@ -6,7 +6,10 @@ console.log(url);
 const dbName = 'yt';
 
 // Use connect method to connect to the server
-MongoClient.connect(url, (err, client) => {
+MongoClient.connect(url, {
+	   useNewUrlParser: true,
+	   useUnifiedTopology: true
+	 },(err, client) => {
   if (err) {
     console.log(err);
   }
