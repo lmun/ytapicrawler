@@ -1,6 +1,6 @@
+const {mongoConfig:url} = require('./config.js');
 const MongoClient = require('mongodb').MongoClient;
-
-const url = 'mongodb://www.444.cl:27017';
+console.log(url);
 
 // Database Name
 const dbName = 'yt';
@@ -13,4 +13,6 @@ MongoClient.connect(url, (err, client) => {
   console.log('Connected correctly to server');
 
   const db = client.db(dbName);
+	db.listCollections()
+	            .toArray().then(x=>console.log(x));
 });
