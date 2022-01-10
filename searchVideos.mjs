@@ -58,6 +58,7 @@ const client = new MongoClient(url, {
                 videoInfo.descargando = false;
                 console.log(`no descargable: ${idc} - ${videoInfo.id}`);
               }
+              videoInfo.dateAdded = new Date().toISOString();
               // agregarlo a la base de datos si no esta
               await agregaVideoAMongo(videoInfo);
               console.log(`video ${idc} agregado correctamente`);
